@@ -48,84 +48,84 @@ df = train
 
 #--------- Dashboard
 ## Importing Logo and encoding it
-image_filename = 'images/PUBG_Logo.png' 
+image_filename = 'assets/PUBG_Logo.png' 
 encoded_image = base64.b64encode(
     open(image_filename, 'rb').read())
 
 
 ## Importing Plots and encoding it
 ### Histogram
-image_filename = 'images/Histogram_Plots.png' 
+image_filename = 'assets/Histogram_Plots.png' 
 encoded_image1 = base64.b64encode(
     open(image_filename, 'rb').read())
 
 ### Q-Q Plot
-image_filename = 'images/Probability_Plot_1.png' 
+image_filename = 'assets/Probability_Plot_1.png' 
 encoded_image2 = base64.b64encode(
     open(image_filename, 'rb').read())
 
-image_filename = 'images/Probability_Plot_2.png' 
+image_filename = 'assets/Probability_Plot_2.png' 
 encoded_image3 = base64.b64encode(
     open(image_filename, 'rb').read())
 
-image_filename = 'images/Probability_Plot_3.png' 
+image_filename = 'assets/Probability_Plot_3.png' 
 encoded_image4 = base64.b64encode(
     open(image_filename, 'rb').read())
 
 ### Discretized Distributions
-image_filename = 'images/Distribution_Kills.png' 
+image_filename = 'assets/Distribution_Kills.png' 
 encoded_image5 = base64.b64encode(
     open(image_filename, 'rb').read())
 
-image_filename = 'images/Distribution_Kill-Death-Ratio.png' 
+image_filename = 'assets/Distribution_Kill-Death-Ratio.png' 
 encoded_image6 = base64.b64encode(
     open(image_filename, 'rb').read())
 
-image_filename = 'images/Distribution_Headshots.png' 
+image_filename = 'assets/Distribution_Headshots.png' 
 encoded_image7 = base64.b64encode(
     open(image_filename, 'rb').read())
 
-image_filename = 'images/Distribution_Headshot-Kill-Ratio.png' 
+image_filename = 'assets/Distribution_Headshot-Kill-Ratio.png' 
 encoded_image8 = base64.b64encode(
     open(image_filename, 'rb').read())
 
-image_filename = 'images/Distribution_Wins.png' 
+image_filename = 'assets/Distribution_Wins.png' 
 encoded_image9 = base64.b64encode(
     open(image_filename, 'rb').read())
 
-image_filename = 'images/Distribution_Win-Ratio.png' 
+image_filename = 'assets/Distribution_Win-Ratio.png' 
 encoded_image10 = base64.b64encode(
     open(image_filename, 'rb').read())
 
-image_filename = 'images/Distribution_Top10s.png' 
+image_filename = 'assets/Distribution_Top10s.png' 
 encoded_image11 = base64.b64encode(
     open(image_filename, 'rb').read())
 
-image_filename = 'images/Distribution_Top10-Ratio.png' 
+image_filename = 'assets/Distribution_Top10-Ratio.png' 
 encoded_image12 = base64.b64encode(
     open(image_filename, 'rb').read())
 
-image_filename = 'images/Distribution_Total-Distance.png' 
+image_filename = 'assets/Distribution_Total-Distance.png' 
 encoded_image13 = base64.b64encode(
     open(image_filename, 'rb').read())
 
-image_filename = 'images/Distribution_Average-Distance.png' 
+image_filename = 'assets/Distribution_Average-Distance.png' 
 encoded_image14 = base64.b64encode(
     open(image_filename, 'rb').read())
 
-image_filename = 'images/Distribution_Time-Survived.png' 
+image_filename = 'assets/Distribution_Time-Survived.png' 
 encoded_image15 = base64.b64encode(
     open(image_filename, 'rb').read())
 
-image_filename = 'images/Distribution_Average-Time-Survived.png' 
+image_filename = 'assets/Distribution_Average-Time-Survived.png' 
 encoded_image16 = base64.b64encode(
     open(image_filename, 'rb').read())
 
-image_filename = 'images/Distribution_Rounds-Played.png' 
+image_filename = 'assets/Distribution_Rounds-Played.png' 
 encoded_image17 = base64.b64encode(
     open(image_filename, 'rb').read())
 
-image_filename = 'images/Distribution_Damage-Per-Game.png' 
+image_filename = 'assets/Distribution_Damage-Per-Game.png' 
 encoded_image18 = base64.b64encode(
     open(image_filename, 'rb').read())
 
