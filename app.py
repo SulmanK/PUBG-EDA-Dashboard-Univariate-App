@@ -18,7 +18,8 @@ import plotly.graph_objects as go
 
 
 #--------- Pandas Dataframe
-orig = pd.read_csv('data/PUBG_Player_Statistics.csv')
+url = "https://raw.githubusercontent.com/SulmanK/PUBG-EDA-Dashboard-Univariate-App/master/data/PUBG_Player_Statistics.csv"
+orig = pd.read_csv(url, nrows = 1000)
 
 ## Create a copy of the dataframe
 df = orig.copy()
@@ -48,7 +49,7 @@ df = train
 
 #--------- Dashboard
 ## Importing Logo and encoding it
-image_filename = 'assets/PUBG_Logo.png' 
+image_filename = 'assets/PUBG_logo.png' 
 encoded_image = base64.b64encode(
     open(image_filename, 'rb').read())
 
@@ -140,6 +141,7 @@ app = dash.Dash(__name__,
 
 server = app.server
 app.config['suppress_callback_exceptions'] = True
+
 ## Setting up the dashboard layout
 app.layout = html.Div(
     [
@@ -267,7 +269,7 @@ app.layout = html.Div(
                 },
                                 {
                     'id': 'DamagePg',
-                    'name': 'Damage Per Game',
+                    'name': 'Damage Per Round',
                     'type': 'numeric'
 
                 },
@@ -339,7 +341,7 @@ app.layout = html.Div(
             [
                 dcc.Markdown(
                     ''' 
-                    * Most features are right-skewed; only Average Survival Time appears to be normal.
+                    * Most features are right-skewed; only Average Survival Time per round appears to be normal.
                     
                     ''')
             ]
@@ -370,7 +372,7 @@ app.layout = html.Div(
                 dcc.Markdown(
                     ''' 
                     * Verify our initial claims from the histograms by examining linear behavior in Q-Q plots.
-                    * Average Survival Time exhibits linear behavior and is normal.
+                    * Average Survival Time per round exhibits linear behavior and is normal.
                     
                     '''
                 )
@@ -484,7 +486,7 @@ app.layout = html.Div(
                     [
                         dcc.Markdown(
                             ''' 
-                            * Most players are in the range of 0 - 9 headshots, which is 34.6% of the data.
+                            * Most players are in the range of 0 - 9 headshots, which is 34.4% of the data.
                             
                             ''', className = "six columns"
                         )
@@ -536,7 +538,7 @@ app.layout = html.Div(
                     [
                         dcc.Markdown(
                             ''' 
-                            * Most players are in the range of 0 - 9 wins, which is 25.9% of the data.
+                            * Most players are in the range of 0 - 9 wins, which is 25.8% of the data.
                             
                             ''', className = "six columns" )
                     ],
@@ -545,8 +547,8 @@ app.layout = html.Div(
                     [
                         dcc.Markdown(
                             ''' 
-                            * Most players are in the interval of 1.00  - 1.99 (%).
-                            * For reference, a 1.0% win ratio is analogous to every 100 games one win is achieved.
+                            * Most players are in the interval of 1.00 - 1.99 (%), which is 12.2% of the data.
+                            * For reference, a 1.0% win ratio is analogous to, for every 100 round, one win is achieved.
                 
                             ''', className = "six columns" 
                         )
@@ -597,7 +599,7 @@ app.layout = html.Div(
                     [
                         dcc.Markdown(
                             ''' 
-                            * Most players are in intervals of 9.00 - 9.99 (%). 
+                            * Most players are in intervals of 11.00 - 11.99 (%), which is 4.6% of the data.  
                             * For reference, a 1% top 10 ratio implies that you earn nine top 10 finishes out of 100 rounds played.
 
                             ''', className = "six columns" 
@@ -624,21 +626,21 @@ app.layout = html.Div(
             ], className = 'row'
         ), 
 
-# Insert Header for Total Distance and Average Distance Per Game
+# Insert Header for Total Distance and Average Distance Per Round
         html.Div(
             [
-                html.H3("Total Distance and Average Distance per game" )
+                html.H3("Total Distance and Average Distance per round" )
             ]
         ),
         
-# Insert Markdown for Total Distance and Average Distance Per Game      
+# Insert Markdown for Total Distance and Average Distance Per Round      
         html.Div(
             [
                 html.Div(
                     [
                         dcc.Markdown(
                             ''' 
-                            * Most players are in the range of 0 - 19999 miles, which is 12.1% of the data.
+                            * Most players are in the range of 0 - 19999 miles, which is 12.0% of the data.
                             * The average man will travel 110,000 miles in his lifetime, which is 6x the reported amount from the majority of players.
                 
                 ''', className = "six columns" 
@@ -659,7 +661,7 @@ app.layout = html.Div(
             ], className = 'row'
         ),
         
-# Insert Total Distance and Average Distance Per Game Distributions
+# Insert Total Distance and Average Distance Per Round Distributions
         html.Div(
             [
                 html.Div(
@@ -677,22 +679,22 @@ app.layout = html.Div(
             ], className = 'row'
         ), 
         
-# Insert Header for Time Survived and Average Time Survived per game
+# Insert Header for Time Survived and Average Time Survived per round
 html.Div(
     [
-        html.H3("Time Survived and Average Time Survived per game" )
+        html.H3("Time Survived and Average Time Survived per round" )
     ]
         ),
         
 
-# Insert Markdown for Time Survived and Average Time Survived per game      
+# Insert Markdown for Time Survived and Average Time Survived per round      
         html.Div(
             [
                 html.Div(
                     [
                         dcc.Markdown(
                             ''' 
-                            * Most players are in the range of 0 - 9999 seconds, which is 15.7% of the data.
+                            * Most players are in the range of 0 - 9999 seconds, which is 15.6% of the data.
                             * The average man will live 22,075,000 seconds in his lifetime, which is roughly 22,700x the reported amount from the majority of players.        
                             
                             ''', className = "six columns" 
@@ -711,7 +713,7 @@ html.Div(
             ], className = 'row'
         ),
 
-# Insert Time Survived and Average Time Survived per Game
+# Insert Time Survived and Average Time Survived per round
         html.Div(
             [
                 html.Div(
@@ -732,19 +734,19 @@ html.Div(
 # Insert Header for Rounds Played and Damage per game
         html.Div(
             [
-                html.H3("Rounds Played and Damage per game" )
+                html.H3("Rounds Played and Damage per round" )
             ]
         ),
 
         
-# Insert Markdown for Rounds Played and Damage per game   
+# Insert Markdown for Rounds Played and Damage per round   
         html.Div(
             [
                 html.Div(
                     [
                         dcc.Markdown(
                             ''' 
-                            * Most players are in the range of 0 - 9 rounds, which is 17.1% of the data.
+                            * Most players are in the range of 0 - 9 rounds, which is 17.0% of the data.
                             
                             ''', className = "six columns" 
                         )
@@ -754,7 +756,7 @@ html.Div(
                     [
                         dcc.Markdown(
                             ''' 
-                            * Most data is represented in the center (130 - 139 DMG Per Round), which is 6.0%.
+                            * Most data is represented in the center (130 - 139 DPR), which is 6.0% of the data.
                             
                             ''', className = "six columns" 
                         )
@@ -762,7 +764,7 @@ html.Div(
                 ), 
             ], className = 'row'
         ),
-# Insert Rounds Played and Damage per game
+# Insert Rounds Played and Damage per round
         html.Div(
             [
                 html.Div(
@@ -781,14 +783,6 @@ html.Div(
         ),          
     ]
 )
-
-
-
-
-
-
-   
-        
 
     
 
